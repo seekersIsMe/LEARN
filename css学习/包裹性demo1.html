@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .box {
+        width: 200px;
+        padding: 10px;
+        background-color: #cd0000;
+        text-align: center;/*让子元素居中*/
+    }
+    .content {
+        display: inline-block;
+        text-align: left;
+    }
+</style>
+<body>
+<p>需求：文字少的时候居中显示，文字超过一行的时候居左显示</p>
+<div class="box">
+    <p id="conMore" class="content">文字内容-新增文字</p>
+</div>
+<!-- 按钮 -->
+<p><button id="btnMore">更多文字</button></p>
+<script>
+    var btn = document.getElementById('btnMore'),
+        content = document.getElementById('conMore');
+
+    if (btn && content) {
+        btn.onclick = function() {
+            content.innerHTML += '-新增文字';
+        };
+    }
+</script>
+</body>
+</html>

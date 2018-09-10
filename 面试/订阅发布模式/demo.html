@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    window.onload=function () {
+        var model={};
+        model.list=[]
+        model.listen=function (fn) {
+            if(typeof fn !=='function'){
+                console.warn('传参错误')
+                return
+            }
+            this.list.push(fn)
+        }
+        model.announce=function () {
+            var len=this.list.length
+            for(var i=0;i<len;i++){
+                this.list[i].apply(null,arguments)
+            }
+        }
+        //订阅
+        model.listen(function () {
+            console.log(arguments)
+        })
+        //发布
+        model.announce('占辉',25,'boy');
+    }
+</script>
+</html>

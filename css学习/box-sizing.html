@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>box-sizing 被发明出来最大的初衷应该是解决替换元素宽度自适应问题</h1>
+<p>
+唯一离不开 box-sizing:border-box 的
+就是原生普通文本框input和文本域textarea的 100%自适应父容器宽度。
+拿文本域textarea举例，textarea为替换元素，替换元素的特性之一就是尺寸由
+内部元素决定，且无论其 display 属性值是 inline 还是 block。这个特性很有意思，对于
+非替换元素，如果其 display 属性值为 block，则会具有流动性，宽度由外部尺寸决定，但
+是替换元素的宽度却不受 display 水平影响，因此，我们通过 CSS 修改textarea的
+display 水平是无法让尺寸 100%自适应父容器的
+</p>
+</body>
+</html>

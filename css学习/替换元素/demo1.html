@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img{
+        width: 200px;
+        height: 200px;
+        background: red;
+        display: inline-block;
+        /*在谷歌浏览器下，没有src但是有alt时，不设置display为inline-block或者block的条件下，设置图片的大小不生效的*/
+        /*在火狐浏览器下，没有src时，Firefox 浏览器，src 缺省的<img>不是替换元素，而是一个普通的内联元素*/
+    }
+    /*img:hover::after{*/
+    /*content: attr(alt);*/
+    /*}*/
+</style>
+<body>
+
+
+<h2>没有src和alt</h2>
+<div>
+    <img  >
+</div>
+
+<h2>有alt，没有src</h2>
+<div>
+    <img  alt="测试">
+</div>
+
+<h2>有alt和src</h2>
+<div>
+    <img alt="测试" src="https://demo.cssworld.cn/images/common/l/1.jpg">
+</div>
+
+</body>
+</html>

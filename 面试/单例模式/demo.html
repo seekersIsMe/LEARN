@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="open">点击显示</button>
+<button id="close">点击显示</button>
+<div class="pop">
+<span>
+   这是第一个dom
+</span>
+</div>
+<div class="pop1">
+<span>这是第二个dom</span>
+</div>
+</body>
+<script>
+    window.onload = function () {
+        /************************************************************************************/
+        //第一种写法
+//        function createPop() {
+//            const div = document.createElement('div')
+//            div.innerHTML = '登入浮框'
+//            div.style.display = 'none'
+//            document.getElementsByClassName('pop')[0].appendChild(div)
+//            return function (dis) {//这里返回弹窗的显示与隐藏的方法
+//                div.style.display = dis
+//            }
+//        }
+//
+//        function createClass(fn) {
+//            var onlyClass = null;//这里是必要的，闭包
+//            if (!onlyClass) {//这里确保div只创建一次
+//                onlyClass = fn.call(this);
+//            }
+//            return onlyClass
+//        }
+//
+//        var dialog = createClass(createPop)
+//        document.getElementById('open').onclick = function () {
+//            dialog('block');
+//        }
+//        document.getElementById('close').onclick = function () {
+//            dialog('none');
+//        }
+
+/*******************************************************************/
+//第二种方式，改写构造函数
+        function Universe() {
+
+            // 缓存的实例
+            var instance = this;
+
+            // 其它内容
+            this.start_time = 0;
+            this.bang = "Big";
+
+            // 重写构造函数
+            Universe = function () {
+                return instance;
+            };
+        }
+        Universe.prototype.say=function () {
+            console.log('hello')
+        }
+        var uni1 = new Universe();
+        var uni2 = new Universe();
+        uni1.bang = "123";
+        console.log(uni1 === uni2); // true
+        console.log(uni2.bang); // 123
+
+/************************************************************************************************************************/
+
+        //第三种
+        function Universe1() {
+
+            // 判断是否存在实例
+            if (typeof Universe1.instance === 'object') {
+                return Universe1.instance;
+            }
+
+            // 其它内容
+            this.start_time = 0;
+            this.bang = "Big";
+
+            // 缓存
+            Universe1.instance = this;
+
+            // 隐式返回this
+        }
+
+// 测试
+        var uni3 = new Universe1();
+        var uni4 = new Universe1();
+        console.log(uni3 === uni4);//true
+
+/*************************************************************************************************************************/
+//第四种：
+        function Universe() {
+
+            // 缓存实例
+            var instance;
+
+            // 重新构造函数
+            Universe = function Universe() {
+                return instance;
+            };
+
+            // 后期处理原型属性
+            Universe.prototype = this;
+
+            // 实例
+            instance = new Universe();
+
+            // 重设构造函数指针
+            instance.constructor = Universe;
+
+            // 其它功能
+            instance.start_time = 0;
+            instance.bang = "Big";
+
+            return instance;
+        }
+/**********************************************************************************************************************/
+
+        //最佳的一个实践
+//        var singlePattern=(function () {
+//            //定义私有方法
+//            function createPop(parent) {
+//               var div = document.createElement('div')
+//                div.innerHTML = '登入浮框'
+////                div.style.display = 'none'
+//                parent.appendChild(div)
+//                this.pop=div;
+//               this.parent=parent
+//            }
+//            createPop.prototype.show=function () {
+//                this.pop.style.display='block'
+//            }
+//            createPop.prototype.hide=function () {
+//                this.pop.style.display='none'
+//            }
+//            createPop.prototype.append=function (parent) {
+//                parent.appendChild(this.pop)
+//            }
+//            var instance=null;
+//            return {
+//                doPop:function (parent) {
+//                    if(Object.prototype.toString.call(instance).slice(-7,-1).toLowerCase()!=='object'){
+//                        instance=new createPop(parent)
+//                    }
+//                    return instance
+//                }
+//            }
+//
+//        })()
+//        var pop_parent=document.getElementsByClassName('pop')[0]
+//
+//        document.getElementById('open').onclick = function () {
+//            singlePattern.doPop(pop_parent).show()
+//        }
+//        document.getElementById('close').onclick = function () {
+//            singlePattern.doPop(pop_parent).hide()
+//        }
+
+
+
+        /**********************************************************************************************************************************/
+        //更改构造函数
+//        var singlePattern=function (parent) {
+//            function createPop(parent) {
+//                var div = document.createElement('div')
+//                div.innerHTML = '弹窗'
+//                parent.appendChild(div)
+//                this.pop=div;
+//                this.parent=parent;
+//            }
+//            createPop.prototype.show=function () {
+//                this.pop.style.display='block'
+//            }
+//            createPop.prototype.hide=function () {
+//                this.pop.style.display='none'
+//            }
+//            createPop.prototype.append=function (parent) {
+//                parent.appendChild(this.pop)
+//            }
+//            var instance=new createPop(parent),popParent=parent;
+//            singlePattern=function (parent) {//更改构造函数
+//                if(popParent!=parent){
+//                    popParent=parent
+//                    instance.append(parent)
+//                }
+//                return instance
+//            }
+//            return  instance
+//        }
+//        var pop_parent=document.getElementsByClassName('pop')[0];
+//        var pop_parent1=document.getElementsByClassName('pop1')[0];
+//        document.getElementById('open').onclick = function () {
+//           new singlePattern(pop_parent).show()
+//        }
+//        document.getElementById('open1').onclick = function () {
+//            new singlePattern(pop_parent1).hide()
+//        }
+
+        /***************************************************************************************************************/
+        //给构造函数加属性，该属性为实例挂载点
+        var singlePattern=function (parent) {
+            function createPop (parent) {
+                var div = document.createElement('div')
+                div.innerHTML = '弹窗'
+                parent.appendChild(div)
+                this.pop=div;
+                this.parent=parent;
+            }
+            createPop.prototype.show=function () {
+                this.pop.style.display='block'
+            }
+            createPop.prototype.hide=function () {
+                this.pop.style.display='none'
+            }
+            createPop.prototype.append=function (parent) {
+                parent.appendChild(this.pop)
+            }
+            if(typeof singlePattern.instance ==='object'){
+                return singlePattern.instance
+            }else {
+                return singlePattern.instance=new createPop(parent);
+            }
+
+        }
+        var pop_parent=document.getElementsByClassName('pop')[0];
+        document.getElementById('open').onclick = function () {
+           new singlePattern(pop_parent).show()
+        }
+        document.getElementById('close').onclick = function () {
+            new singlePattern(pop_parent).hide()
+        }
+    }
+</script>
+</html>

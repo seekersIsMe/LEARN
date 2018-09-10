@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box {
+        display: inline-block;
+        white-space: nowrap;
+        background-color: #cd0000;
+    }
+    .text {
+        display: inline-block;
+        width: 100%;
+        background-color: #34538b;
+        color: #fff;
+    }
+</style>
+<body>
+<p>
+    要明白其中的原因要先了解浏览器渲染的基本原理。首先，先下载文档内容，加载头部的
+    样式资源（如果有的话），然后按照从上而下、自外而内的顺序渲染 DOM 内容。套用本例就是，
+    先渲染父元素，后渲染子元素，是有先后顺序的。因此，当渲染到父元素的时候，子元素的
+    width:100%并没有渲染，宽度就是图片加文字内容的宽度；等渲染到文字这个子元素的时候，
+    父元素宽度已经固定，此时的 width:100%就是已经固定好的父元素的宽度。宽度不够怎么
+    办？溢出就好了，overflow 属性就是为此而生的。
+    同样的道理，如果 height 支持任意元素 100%，也是不会死循环的。和宽度类似，静态
+    渲染，一次到位。
+    那问题又来了：为何宽度支持，高度就不支持呢？规范中其实给出了答案。如果包含
+    块的高度没有显式指定（即高度由内容决定），并且该元素不是绝对定位，则计算值为
+    auto。一句话总结就是：因为解释成了 auto。要知道，auto 和百分比计算，肯定是算
+    不了的：
+</p>
+<div class="box">
+    <img src="https://www.baidu.com/img/bd_logo1.png?where=super">
+    <span class="text">红色背景是父级</span>
+</div>
+</body>
+</html>

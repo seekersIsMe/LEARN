@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box {
+            width: 256px;
+            height: 256px;
+            border-bottom: 1px dashed #ccc;
+            text-align: justify;
+        }
+        .box:before {
+            content: "";
+            display: inline-block;
+            height: 100%;
+        }
+        .box:after {
+            content: "";
+            display: inline-block;
+            width: 100%;
+        }
+        .bar {
+            display: inline-block;
+            width: 20px; height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box"><i class="bar"></i>
+    <i class="bar item1"></i>
+    <i class="bar item2"></i>
+    <i class="bar item3"></i>
+</div>
+</body>
+</html>

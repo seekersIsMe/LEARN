@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .love,.loveToo{
+        width: 0;
+        display: inline-block;
+        float: left;
+        margin: 40px;
+    }
+    .love:before{
+        content: 'love你love';
+
+        outline: 2px solid #cd0000;
+    }
+    .loveToo{
+        direction: rtl;/*文本从右向左*/
+    }
+    .loveToo:before{
+        content: '我love你';
+        outline: 2px solid #cd0000;
+    }
+</style>
+<body>
+<div class="love"></div>
+<div class="loveToo"></div>
+</body>
+</html>

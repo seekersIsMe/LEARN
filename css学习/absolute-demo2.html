@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .app{
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        position: relative;
+    }
+    .app0{
+        width: 200px;
+        height: 100px;
+        /*position: relative;*/
+        /*position: absolute;*/
+        border: 1px solid green;
+    }
+    .app1{
+        width: 300px;
+        height: 200px;
+        position: absolute;
+        border: 1px solid blue;
+    }
+</style>
+<body>
+<div class="app">
+    <div class="app0"></div>
+    <div class="app1">absolute的定位是以非绝对定位相邻兄弟为标准</div>
+</div>
+</body>
+</html>

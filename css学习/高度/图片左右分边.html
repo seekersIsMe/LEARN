@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .box {
+        display: inline-block;/*box有内容大小撑起来，最大宽度机制，没有脱离文档流的dom*/
+        position: relative;
+    }
+    .prev,
+    .next {
+        width: 50%; height: 100%;
+        position: absolute;
+        top: 0;
+        opacity: .5;
+    }
+    .prev {
+        left: 0;
+        background-color: #cd0000;
+    }
+    .next {
+        right: 0;
+        background-color: #34538b;
+    }
+</style>
+<body>
+只要在图片上覆盖两个绝对定位的元素，同时设 height:100%，则无论图片多高，我们的左
+右半区都能自动和图片高度一模一样，无须任何使用 JavaScript 的计算。
+
+box的大小根据图片的大小来确定，左右的两个遮罩层的大小根据box来计算得出，此处的高度是以父元素padding-box（包含padding）来计算的
+<div class="box">
+    <a href="javascript:" class="prev" title="上一张">上一张</a>
+    <a href="javascript:" class="next" title="下一张">下一张</a>
+    <img src="https://demo.cssworld.cn/images/common/l/1.jpg">
+</div>
+</body>
+</html>

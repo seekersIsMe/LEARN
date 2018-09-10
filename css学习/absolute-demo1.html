@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .app0{
+        padding: 20px;
+        position: relative;
+
+        border: 1px solid red;
+    }
+    .app1{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        background-color: green;
+    }
+</style>
+<body>
+<div class="app0">
+    <div class="app1">absolute破坏性，使父元素塌陷</div>
+</div>
+</body>
+</html>
