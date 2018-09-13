@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+       span{
+           margin: 60px;/*垂直方向上的margin无效*/
+           background-color: red;
+       }
+        .app1{
+           height:200px;
+            background-color: #beceeb;
+        }
+        .son1{
+            margin-top: -600px;/*太大了就没有效果了，和vertical-align有关*/
+        }
+    </style>
+</head>
+<body>
+
+<div class="app1">
+    <img src="https://www.baidu.com/img/bd_logo1.png?where=super" alt="" class="son1">
+</div>
+<div class="app">
+    <span>
+        测试
+    </span>
+</div>
+</body>
+</html>

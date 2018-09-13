@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .app{
+            width: 300px;
+            height: 200px;
+            background-color: #beceeb;
+            writing-mode: vertical-lr;/*文档流方向改为垂直方向，所以block的元素（出去替换元素）的height具有自动填充特性*/
+        }
+        .app1{
+            width: 150px;
+            /*height: 100px;*/
+            margin: auto;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <div class="app1"></div>
+</div>
+</body>
+</html>

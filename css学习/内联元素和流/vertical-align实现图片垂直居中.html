@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            background-color: #eeeeee;
+        }
+        .box {
+            height: 128px;
+            line-height: 128px; /* 关键 CSS 属性 */
+        }
+        .box > img {
+            height: 96px;
+            vertical-align: middle;
+        }
+        .box1 {
+            height: 128px;
+            /*line-height: 128px; !*不需要line-heigth来撑起幽灵节点*!*/
+            vertical-align: middle;/*这个要设置在table-cell上，不是img上*/
+            display: table-cell;
+        }
+        .box1 > img {
+            height: 96px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <img src="https://image.zhangxinxu.com/image/study/s/s128/mm2.jpg">
+</div>
+
+<div class="box1">
+    <img src="https://image.zhangxinxu.com/image/study/s/s128/mm2.jpg">
+</div>
+</body>
+</html>

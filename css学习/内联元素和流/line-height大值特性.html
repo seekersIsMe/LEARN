@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .app{
+            line-height: 20px;
+            background-color: #eeeeee;
+        }
+        .son{
+            line-height: 200px;
+            background-color: red;
+        }
+        .app1{
+            line-height: 200px;
+            background-color: #eeeeee;
+            margin-top: 50px;
+        }
+        .son1{
+            display: inline-block;/*创建一个独立的“行框盒子”,让其line-height:20px生效，不然span的line-height是以父元素的行高为准*/
+            line-height: 20px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="app">
+    <span class="son">
+测试爱仕达多撒啊<br>
+测试爱仕达多撒啊
+
+    </span>
+    x
+</div>
+<div class="app1">
+    <span class="son1">
+       测试爱仕达多撒啊<br>
+测试爱仕达多撒啊
+    </span>
+</div>
+</body>
+</html>

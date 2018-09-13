@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            display: table;
+            width: 300px;
+        }
+
+        .son {
+            display: table-cell;/*不能兼容ie8以下*/
+        }
+        .item1{
+            background-color: red;
+        }
+        .item2{
+            background-color: blue;
+        }
+        .item3{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="son item1">
+        <p>123</p>
+        <p>123</p>
+        <p>123</p>
+    </div>
+    <div class="son item2">
+        <p>456</p>
+        <p>456</p>
+        <p>456</p>
+    </div>
+    <div class="son item3">
+        <p>789</p>
+        <p>789</p>
+    </div>
+</div>
+</body>
+</html>
