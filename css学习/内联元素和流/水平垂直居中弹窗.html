@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            position: fixed;
+            background-color: #eeeeee;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom:0;
+            font-size: 0;
+            text-align: center;
+            overflow:auto;/*当弹窗的内容超出屏幕时还可以看到屏幕外的内容*/
+        }
+        /*这里的伪元素和这里的div（item）有种“幽灵空白节点”的感觉，这是垂直居中的关键*/
+        /*采用div的形式可以兼容IE7*/
+        .item {
+            content: '';
+            display: inline-block;
+            /*width: 200px;*/
+            background-color: red;
+            height: 100%;
+            vertical-align: middle;
+        }
+        /*.container:after{*/
+            /*content: '';*/
+            /*display: inline-block;*/
+            /*!*width: 200px;*!*/
+            /*background-color: red;*/
+            /*height: 100%;*/
+            /*vertical-align: middle;*/
+        /*}*/
+        .dialog{
+            vertical-align: middle;
+            display: inline-block;
+            background-color: #fff;
+                /*height: 2000px;*/
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="dialog">
+        dxasa
+        <div>
+            wocoa
+        </div>
+    </div>
+    <div class="item">
+
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .container{
+            position: fixed;
+            background-color: #eeeeee;
+            left: 0;
+            right: 0;
+            top:0;
+            bottom:0;
+            font-size: 0;
+            text-align: center;
+            line-height: 100vh;/*直接用100vh撑起幽灵元素，不用加div或者伪元素，其子元素需要充值line-height,其具体具有继承性*/
+            overflow:auto;/*当弹窗的内容超出屏幕时还可以看到屏幕外的内容*/
+        }
+        .dialog{
+            vertical-align: middle;
+            display: inline-block;
+            background-color: #fff;
+                /*height: 2000px;*/
+            font-size: 14px;
+            line-height: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="dialog">
+       sdadsax
+        <div>
+            测试
+        </div>
+    </div>
+</div>
+</body>
+</html>

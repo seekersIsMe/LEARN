@@ -8,12 +8,28 @@
             margin: 0;
             padding: 0;
         }
+        .contain{
+            line-height: 150px;
+            background-color: #eeeeee;
+            font-size: 0;
+            border: 1px solid blue;
+        }
+        .item{
+            font-size: 16px;
+            background-color: red;
+        }
+        .contain span{
+            display: inline-block;
+            line-height: 20px;
+            vertical-align: middle;
+            width: 300px;
+        }
         .img{
-            /*line-height: 150px;*/
+            line-height: 150px;
             background-color: #eeeeee;
         }
         .img img{
-            /*vertical-align: middle;*/
+            vertical-align: middle;
         }
         /*去掉图片底部的空白间隙：img前后有空格，而该空格的line-height有默认值，img元素的vertical-align的默认值为baseline，也就是基线对齐，img的底部对齐文字的底部*/
         /*解决方案有：*/
@@ -24,15 +40,36 @@
         /*tip：*/
         /*1、vertical-align的百分比是相对line-height,例如line-height为20px，vertical-align为10%，则最终计算vertical-align为20*10%=2px*/
         /*2、vertical-align属性只会在inline-block水平的元素上期作用，但是其影响到的元素涉及到inline属性的元素，这里千万记住，*/
-         /*inline水平元素受vertical-align属性而位置改变等不是因为其对vertical-align属性敏感或起作用，而是受制于整个line box的变化而不得不变化的，*/
-         /*这个后面会较为深入的分析。*/
+        /*inline水平元素受vertical-align属性而位置改变等不是因为其对vertical-align属性敏感或起作用，而是受制于整个line box的变化而不得不变化的，*/
+        /*这个后面会较为深入的分析。*/
+        .fx{
+            background-color: #eeeeee;
+            font-size: 0;
+            margin-top: 20px;
+        }
+        /*.fx span{*/
+        /*line-height: 100px;*/
+        /*}*/
     </style>
 </head>
 <body>
+<div class="contain">
+    <span class="item">
+        多行文本垂直居中
+        这里是高度为150像素的标签内的多行文字，文字大小为12像素。这里是第二行，用来测试多行的显示效果
+    </span>
+    x
+</div>
 <div class="img">
     图片居中
     <img src="https://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" alt="">
     x
+</div>
+<div class="fx">
+    <img src="https://image.zhangxinxu.com/image/study/s/s128/mm2.jpg" alt="">
+    <span>
+        hahahha
+    </span>
 </div>
 </body>
 </html>

@@ -12,6 +12,13 @@
  
  # vertical-align：inline-block和baseline
  * vertical-align 属性的默认值 baseline 在文本之类的内联元素那里就是字符 x 的下
-   边缘，对于替换元素则是替换元素的下边缘。但是，如果是 inline-block 元素，则规则要
-   复杂了：一个 inline-block 元素，如果里面没有内联元素，或者 overflow 不是 visible，
-   则该元素的基线就是其 margin 底边缘；否则其基线就是元素里面最后一行内联元素的基线。
+   边缘，对于替换元素则是替换元素的下边缘。但是，如果是 inline-block 元素则规则要
+   复杂了：一个 inline-block 元素，如果里面就是没有图文内容，或者 overflow 不是 visible，
+   则该元素的基线就是其 margin 底边缘；否则其基线就是元素里面最后一行内的图文的基线。
+   见demo ：inline-block元素的vertical-align.html
+   
+# vertical-align:middle实现垂直居中
+* 内联元素：元素的垂直中心点和行框盒子基线往上 1/2 x-height 处对齐。vertical-align:middle 定义是元素的中线和字符 x 中心点对齐
+* table-cell 元素：单元格填充盒子相对于外面的表格行居中对齐。
+   
+   

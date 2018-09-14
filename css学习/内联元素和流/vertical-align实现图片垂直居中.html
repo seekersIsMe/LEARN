@@ -8,7 +8,9 @@
             background-color: #eeeeee;
         }
         .box {
-            height: 128px;
+            /*height: 128px;*/
+            font-size: 0;/*大多数字体x字符会往下沉一点，会有1-2px的误差，这样可以实现真正的垂直居中*/
+            text-align: center;
             line-height: 128px; /* 关键 CSS 属性 */
         }
         .box > img {
