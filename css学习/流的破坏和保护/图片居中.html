@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .parent{
+            text-align: center;/*关键点，居中幽灵节点*/
+            background-color: red;
+            height: 300px;
+        }
+        img{
+            position: absolute;/*无依赖绝对定位，图片跟在幽灵节点后面*/
+            width: 200px;
+            margin-left: -100px;/*关键点*/
+        }
+    </style>
+</head>
+<body>
+<div class="parent">
+    <img src="https://www.baidu.com/img/bd_logo1.png?where=super" alt="">
+</div>
+</body>
+</html>

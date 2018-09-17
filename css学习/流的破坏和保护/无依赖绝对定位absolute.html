@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .abs{
+            position: absolute;
+            background-color: red;
+        }
+        .block{
+            position: absolute;
+            display: block;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <span class="son">
+            span和div
+        </span>
+        <div class="abs">
+            div无依赖绝对定位被后面的block-dom盖住了
+        </div>
+        <span>
+            span和span
+        </span>
+        <span class="abs">
+            span无依赖绝对定位
+        </span>
+        <span class="block">
+            block无依赖绝对定位
+        </span>
+    </div>
+</body>
+</html>

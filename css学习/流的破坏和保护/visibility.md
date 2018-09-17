@@ -1,0 +1,1 @@
+transition 支持的 CSS 属性中有 visibility，但是并没有 display
