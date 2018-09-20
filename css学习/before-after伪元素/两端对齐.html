@@ -9,16 +9,22 @@
             height: 256px;
             border-bottom: 1px dashed #ccc;
             text-align: justify;
+            font-size: 0;
+            /*text-align:justify 要想有两端对齐的效果，需
+要满足两点：一是有分隔点，如空格；二是要超过一行*/
         }
+        /*如何要兼容 ie7就不要用伪元素，用dom元素代替*/
         .box:before {
             content: "";
             display: inline-block;
             height: 100%;
+            /*通过这个伪元素前面的幽灵节点，实现底部对齐*/
         }
         .box:after {
             content: "";
             display: inline-block;
             width: 100%;
+            /*这个为满足text-align:justify要超过一行的要求*/
         }
         .bar {
             display: inline-block;
@@ -28,6 +34,7 @@
     </style>
 </head>
 <body>
+<!--第一个i标签前面千万不要有空格或者回车，空格和回车就是占用空白的位置-->
 <div id="box" class="box"><i class="bar"></i>
     <i class="bar item1"></i>
     <i class="bar item2"></i>

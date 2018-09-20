@@ -19,6 +19,8 @@
    
 # vertical-align:middle实现垂直居中
 * 内联元素：元素的垂直中心点和行框盒子基线往上 1/2 x-height 处对齐。vertical-align:middle 定义是元素的中线和字符 x 中心点对齐
-* table-cell 元素：单元格填充盒子相对于外面的表格行居中对齐。
+* table-cell 元素：单元格填充盒子相对于外面的表格行居中对齐。table-cell 元素设置 vertical-align 垂
+直对齐的是子元素，但是其作用的并不是子元素，而是 table-cell 元素自身。就算 table-cell 元素的子元素是一个块级元素，也一样可以让其有各
+种垂直对齐表现。
    
    
